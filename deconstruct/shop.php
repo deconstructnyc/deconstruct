@@ -13,14 +13,14 @@
 			<nav class="page_nav">
 				<ul class="navigation" id="menu-menu-1">
 					<li>
-						<a href="http://localhost:8888/deconstructnyc/shop/">Shop</a>
+						<a href="<?php echo home_url(); ?>/shop/">Shop</a>
 						<ul class="submenu">
 							<?php wp_list_categories(array('taxonomy' => 'clothing_type', 'title_li' => " " )); ?>
 						</ul>
 					</li>
-					<li><a href="http://localhost:8888/deconstructnyc/pre-order/">Pre-Order</a></li>
-					<li><a href="http://localhost:8888/deconstructnyc/blog/">Blog</a></li>
-					<li><a href="http://localhost:8888/deconstructnyc/about-us/">About Us</a></li>
+					<li><a href="<?php echo home_url(); ?>/pre-order/">Pre-Order</a></li>
+					<li><a href="<?php echo home_url(); ?>/blog/">Blog</a></li>
+					<li><a href="<?php echo home_url(); ?>/about-us/">About Us</a></li>
 				</ul>
 			</nav>
 		</div>
