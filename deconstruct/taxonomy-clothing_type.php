@@ -26,17 +26,19 @@
 		</div>
 		<div class="right_column">
 			<ul class="product_list">
-				<?php if(get_field('product_availability') == "Available"): ?>
-					<li>
-						<a href="<?php the_permalink(); ?>">
-							<div class="product_image"><?php the_post_thumbnail(array(187,254)); ?></div>
-							<div class="product_info">
-								<span class="product_name"><?php the_title(); ?></span>
-								<span class="product_price">$<?php the_field('product_price'); ?>.00</span>
-							</div>
-						</a>
-					</li>
-				<?php endif; ?>
+				<?php if(have_rows('products')): while(have_rows('products')): the_row(); ?>					
+					<?php if(get_sub_field('product_availability') == "Available"): ?>
+						<li>
+							<a href="<?php the_permalink(); ?>">
+								<div class="product_image"><img src="<?php the_sub_field('product_image'); ?>"></div>
+								<div class="product_info">
+									<span class="product_name"><?php the_title(); ?> - <?php the_sub_field('product_color'); ?></span>
+									<span class="product_price">$<?php the_field('product_price'); ?>.00</span>
+								</div>
+							</a>
+						</li>
+					<?php endif; ?>
+				<?php endwhile; endif; ?>
 			</ul>
 		</div>
 	</section>
