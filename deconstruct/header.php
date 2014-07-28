@@ -1,3 +1,4 @@
+<?php require_once('includes/repeatables.php') ?>
 <!DOCTYPE html>
 <html>
 	<head>

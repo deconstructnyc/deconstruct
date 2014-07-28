@@ -1,6 +1,37 @@
 $(function(){
-	carousel_slider(".home_slider", 1, 1);
+	active_single_product_img();
+	gallery_image_switch();
 	active_link();
+	carousel_slider(".home_slider", 1, 1);
+	
+
+	function active_single_product_img(){
+		var value = $("#color option:selected").text();
+		$(".single_product_img_list > li[name='" + value + "']").addClass("active_img");
+
+		$("#color").change(function(){
+			var value = $("#color option:selected").text();
+			single_image_change();
+			single_size_change();
+
+			function single_image_change(){
+				$(".single_product_img_list > li").removeClass("active_img");
+				$(".single_product_img_list > li[name='" + value + "']").addClass("active_img");
+			}
+
+			function single_size_change(){
+				$('#size').load((document.URL).substr(-1, 0) + '?c=' + value + ' #size option');
+			}
+		})
+	}
+
+	function gallery_image_switch(){
+		$(".product_gallery > li").click(function(){
+			$(this).parent().siblings(".single_product_image_contain").children(".single_product_image").html("");
+
+			$(this).children("img").clone().appendTo($(this).parent().siblings(".single_product_image_contain").children(".single_product_image"));
+		})
+	}
 
 
 	function active_link(){
@@ -9,7 +40,7 @@ $(function(){
 		var page_path = page_split[page_split.length -2];
 		var parent_path = page_split[page_split.length -3];	
 
-		$(".navigation > li > a, .clothing_type > ul > li > a").each(function(){
+		$(".navigation > li > a, .submenu > li > a, .designers_list > li > a").each(function(){
 			var nav_link = $(this).attr('href');
 			var nav_split = nav_link.split('/');
 			var nav_path = nav_split[nav_split.length -2];
@@ -23,7 +54,6 @@ $(function(){
 			}
 		})
 	}
-
 
 	function carousel_slider(sliderName, slideMin, autoSlide){
 		$(sliderName).each(function(){
