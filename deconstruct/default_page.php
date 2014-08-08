@@ -1,3 +1,8 @@
+<?php
+	/*
+	Template Name: Default Page
+	*/
+?>
 <?php get_header(); ?>
 <?php require_once("includes/page_header.php"); ?>
 
@@ -9,7 +14,6 @@
 			</nav>
 		</div>
 		<div class="right_column html_norm">
-			<h1 class="page_title"><?php the_title(); ?></h1><br/>
 			<?php if(have_posts()): while(have_posts()): the_post(); the_content(); endwhile; endif; ?><br/><br/><br/>
 		</div>
 	</section>

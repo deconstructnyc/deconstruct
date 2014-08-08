@@ -6,7 +6,6 @@
 <?php get_header(); ?>
 <?php require_once("includes/page_header.php"); ?>
 
-<div class="view_filers">View All</div>
 <section class="content_wrap center_contain">
 	<section class="short_left_column">
 		<div class="left_column">
@@ -15,6 +14,7 @@
 			</nav>
 		</div>
 		<div class="right_column">
+			<div class="view_filers">View All</div>
 			<ul class="product_list">
 				<?php
 					query_posts(array('post_type' => 'product'));
